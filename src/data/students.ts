@@ -145,17 +145,17 @@ const aiStudents: Student[] = [
   { rollNumber: '20252503039', name: 'PIYUSH KANSARA', branch: 'AI' },
   { rollNumber: '20252503040', name: 'PRADUM', branch: 'AI' },
   { rollNumber: '20252503041', name: 'PRANJAL VISHWAKARMA', branch: 'AI' },
-  { rollNumber: '20252503042', name: 'RIYA RAI', branch: 'AI' },
+  { rollNumber: '20252503042', name: 'SVRS UDHBHAV BULUSU', branch: 'AI' },
   { rollNumber: '20252503043', name: 'SACHIN KUMAR', branch: 'AI' },
   { rollNumber: '20252503044', name: 'SAMRIDHI TAPARIA', branch: 'AI' },
   { rollNumber: '20252503045', name: 'SARAGADAM DANUSHKAR', branch: 'AI' },
   { rollNumber: '20252503046', name: 'SHARAD KUMAR', branch: 'AI' },
   { rollNumber: '20252503047', name: 'SHAURYA AVINISH KUMAR', branch: 'AI' },
-  { rollNumber: '20252503048', name: 'SVRS UDHBHAV BULUSU', branch: 'AI' },
-  { rollNumber: '20252503049', name: 'TANISHQ VERMA', branch: 'AI' },
-  { rollNumber: '20252503050', name: 'VANAKUNAVATH MAHESH', branch: 'AI' },
-  { rollNumber: '20252503051', name: 'VARUN CHAUHAN', branch: 'AI' },
-  { rollNumber: '20252503052', name: 'VUDIMUDI SRI RAM RAJU', branch: 'AI' },
+  { rollNumber: '20252503048', name: 'TANISHQ VERMA', branch: 'AI' },
+  { rollNumber: '20252503049', name: 'VANAKUNAVATH MAHESH', branch: 'AI' },
+  { rollNumber: '20252503050', name: 'VARUN CHAUHAN', branch: 'AI' },
+  { rollNumber: '20252503051', name: 'VUDIMUDI SRI RAM RAJU', branch: 'AI' },
+  { rollNumber: '20252503052', name: 'RIYA RAI', branch: 'AI' },
 ];
 
 export const allStudents: Student[] = [...cseStudents, ...aiStudents];
