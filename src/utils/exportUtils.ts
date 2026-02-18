@@ -114,6 +114,12 @@ export const exportAttendanceToExcel = async () => {
             // Add Total Column
             row['Total Attendance'] = `${presentCount}/${validSessionsCount}`;
 
+            // Add Percentage Column
+            const percentage = validSessionsCount > 0
+                ? ((presentCount / validSessionsCount) * 100).toFixed(2)
+                : '0.00';
+            row['Attendance Percentage'] = `${percentage}%`;
+
             return row;
         };
 
@@ -139,7 +145,9 @@ export const exportAttendanceToExcel = async () => {
         const colWidths = [
             { wch: 15 }, // Roll Number
             { wch: 30 }, // Name
-            ...dateColumns.map(() => ({ wch: 18 })) // Dates
+            ...dateColumns.map(() => ({ wch: 18 })), // Dates
+            { wch: 15 }, // Total Attendance
+            { wch: 20 }, // Percentage
         ];
         worksheet['!cols'] = colWidths;
 
