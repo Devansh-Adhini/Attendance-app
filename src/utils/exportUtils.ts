@@ -29,13 +29,32 @@ export const exportAttendanceToExcel = async () => {
             return;
         }
 
-        // 2. Fetch all Attendance records
-        // We need all records to map them to the student list.
-        const { data: attendanceData, error: attError } = await supabase
-            .from('Attendance')
-            .select('*');
+        // 2. Fetch all Attendance records with pagination
+        // Supabase has a default limit of 1000 rows per request.
+        let allAttendance: any[] = [];
+        let rangeStart = 0;
+        const PAGE_SIZE = 1000;
 
-        if (attError) throw attError;
+        while (true) {
+            const { data: batch, error: attError } = await supabase
+                .from('Attendance')
+                .select('*')
+                .range(rangeStart, rangeStart + PAGE_SIZE - 1);
+
+            if (attError) throw attError;
+
+            if (batch && batch.length > 0) {
+                allAttendance = [...allAttendance, ...batch];
+                rangeStart += PAGE_SIZE;
+
+                // If we got fewer records than requested, we've reached the end
+                if (batch.length < PAGE_SIZE) break;
+            } else {
+                break;
+            }
+        }
+
+        const attendanceData = allAttendance;
 
         // 3. Process Dates (Columns)
         const dateColumns: { hash: string; label: string }[] = identifiers.map((id: IdentifierRecord) => {
